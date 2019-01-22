@@ -6,7 +6,6 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {  
-      isLogged: false,
       username: '',
       password: ''
     }
@@ -15,44 +14,36 @@ class Login extends Component {
   render () {
     return (
       <div>
-        {/* Conditional Rendering */}
-        {this.state.isLogged && (
-            <>
-              Je suis loggé
-            </>
-          )}
+        <form onSubmit={this.onSubmit}>
+          <TextField
+            id="username"
+            label="Username"
+            value={this.state.username}
+            onChange={this.handleChange('username')}
+            margin="normal"
+          />
 
-          {!this.state.isLogged && (
-            <form onSubmit={this.onSubmit}>
-              <TextField
-                id="username"
-                label="Username"
-                value={this.state.username}
-                onChange={this.handleChange('username')}
-                margin="normal"
-              />
+          <TextField
+            id="password"
+            label="Mot de passe"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange('password')}
+            margin="normal"
+          />
 
-              <TextField
-                id="password"
-                label="Mot de passe"
-                type="password"
-                value={this.state.password}
-                onChange={this.handleChange('password')}
-                margin="normal"
-              />
-
-              <Button type="submit" onClick={this.onSubmit}>
-                Se connecter
-              </Button>
-            </form>
-          )}
+          <Button type="button" onClick={this.onSubmit}>
+            Se connecter
+          </Button>
+        </form>
       </div>
     )
   }
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault()
     if (this.username !== '' && this.password !== '') {
-      this.setState({isLogged: true})
+      console.log('je suis connecté')
     }
   }
 

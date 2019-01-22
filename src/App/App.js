@@ -7,14 +7,12 @@ class App extends Component {
     super(props)
     this.state = {  
       isLogged: false,
-      username: '',
-      password: ''
     }
   }
   render() {
     return (
       <div className="App">
-        <Login />
+        {!this.state.isLogged ? <Login /> : 'COUCOU Je suis connecté '}
       </div>
     );
   }
