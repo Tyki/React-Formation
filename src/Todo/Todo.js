@@ -8,8 +8,6 @@ class Todo extends Component {
       title: props.title,
       description: props.description
     }
-
-    console.log(props)
   }
 
   render () {
