@@ -32,3 +32,4 @@ Ici notre composant `Todo` va prendre en props notre donnée et  afficher le con
 
 Finalement, ce qu'on souhaite, c'est aussi de pouvoir éditer une todo, il faut donc pouvoir gêrer un état interne au composant. Il va donc falloir transformer notre composant stateless en composant stateful, gêrer un état interne de modification de la todo et d'émettre les modifications pour que celles-ci soient repercutées dans la liste (Props de callback :) )
 
+Pour generer un ID, vous pouvez utiliser la librairie https://www.npmjs.com/package/uuid déjà présente dans le projet
