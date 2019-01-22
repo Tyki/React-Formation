@@ -7,15 +7,19 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {  
-      isLogged: true,
+      isLogged: false,
     }
   }
   render() {
     return (
       <div className="App">
-        {!this.state.isLogged ? <Login /> :  <TodoList /> }
+        {!this.state.isLogged ? <Login onLogin={this.handleLogin}/> :  <TodoList /> }
       </div>
     );
+  }
+
+  handleLogin = (isLogged) => {
+    this.setState({isLogged})
   }
 }
 

@@ -25,10 +25,12 @@ class TodoList extends Component {
         <h1>Mes TODOs</h1>
         
         <ul>
-          <li>
-            <h4>Test de ma todo</h4>
-            <span>Une petite description...</span>
-          </li>
+          {this.state.todos.map((todo, index) => (
+            <li key={index}>
+              <h4>{todo.title}</h4>
+              <span>{todo.description}</span>
+            </li>
+          ))}
         </ul>
       </div>
     )

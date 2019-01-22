@@ -43,7 +43,7 @@ class Login extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     if (this.username !== '' && this.password !== '') {
-      console.log('je suis connecté')
+      this.props.onLogin(true)
     }
   }
 
