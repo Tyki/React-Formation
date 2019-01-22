@@ -1,13 +1,34 @@
-### Exercice 1
+### Exercice 2
 
-Créer un composant 'Login' Stateful qui va nous permettre de faire une authentification locale d'un utilisateur.
-(https://reactjs.org/docs/react-component.html#overview) et
-(https://reactjs.org/docs/react-component.html#constructor)
+Maintenant que nous savons que l'utilisateur est connecté, il faut indiquer au composant parent que nous sommes enfin connecté ! 
 
-Pour cela, il faut mettre en place un state (https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class) avec deux propriétés :
-- username
-- password
+Si vous regardez dans le fichier "App.js" vous verrez qu'il y à un state `isLogged` qu'il faut mettre à jour afin de pouvoir le state du composant App.
 
-Une fois votre state mis en place, afficher dans la function 'render', des champs input qui vont permettre de faire la saisie du username et du mot de passe et, pour finir, les relier au state. (https://reactjs.org/docs/forms.html#controlled-components)
+Ici, c'est le composant App qui va décider de quel composant doit être affiché. Tant que l'utilisateur n'est pas connecté, il s'agit du composant 'Login', sinon cela affiché 'Je suis connecté'
 
-Pour finir, ajouter un bouton de soumission de formulaire, vérifier que vos champs 'username' et 'password' ne sont pas vide et faites un console.log('Je suis connecté') si les conditions sont remplies
+Afin de modifier le state du parent, il va falloir passer une props "callback" au composant Login qui nous permettra de mettre à jour le state du composant App.
+
+https://reactjs.org/docs/components-and-props.html
+
+Une props peut être un attribut d'un composant custom ou d'une balise html native.
+
+Exemple :
+
+```
+<MyComponent prop={value}>
+```
+
+ou 
+```
+<input type={value} />
+```
+
+Vous pouvez aussi passer une fonction en props à travers les composants. C'est ce qu'il faut faire ici.
+
+Une fois que vous avez réussi à changer le state, vous pouvez importer le composant todoList qui est prêt à être modifié.
+
+## Suite
+
+Dans le composant todoList, il va falloir remplacer l'affichage de la todo statique par les todos qui sont dans le state. Pour cela il va falloir utiliser une des Array functions : le .map 
+(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) combiné avec du JSX : https://reactjs.org/docs/lists-and-keys.html
+

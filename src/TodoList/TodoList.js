@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+
+class TodoList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      todos: [
+        {
+          id: 1,
+          title: 'Ménage',
+          description: 'Ne pas oublier de faire le ménage...'
+        },
+        {
+          id: 2,
+          title: 'Feuille de temps',
+          description: 'La feuille de temps c\'est super important ! '
+        }
+      ]
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <h1>Mes TODOs</h1>
+        
+        <ul>
+          <li>
+            <h4>Test de ma todo</h4>
+            <span>Une petite description...</span>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default TodoList
