@@ -1,34 +1,34 @@
-### Exercice 2
+### Exercice 3
 
-Maintenant que nous savons que l'utilisateur est connecté, il faut indiquer au composant parent que nous sommes enfin connecté ! 
+Maintenant nous allons mettre en place tout le CRUD de nos todos.
 
-Si vous regardez dans le fichier "App.js" vous verrez qu'il y à un state `isLogged` qu'il faut mettre à jour afin de pouvoir le state du composant App.
+- Mettre en place un composant AddTodo qui se charge d'ajouter des todos à notre liste qui se trouve dans le composant `TodoList`
 
-Ici, c'est le composant App qui va décider de quel composant doit être affiché. Tant que l'utilisateur n'est pas connecté, il s'agit du composant 'Login', sinon cela affiché 'Je suis connecté'
+- Créer un composant stateless `Todo` qui va se charger de l'affichage d'une TODO
 
-Afin de modifier le state du parent, il va falloir passer une props "callback" au composant Login qui nous permettra de mettre à jour le state du composant App.
-
-https://reactjs.org/docs/components-and-props.html
-
-Une props peut être un attribut d'un composant custom ou d'une balise html native.
-
-Exemple :
+Un composant stateless est un composant, qui par définition, n'a pas de state. En react, les composants stateless s'écrivent de la forme suivante : 
 
 ```
-<MyComponent prop={value}>
+import React from 'react'
+
+const MyStatelessComponent = (props) => {
+  return (
+    <div>
+      <span>props.title</span>
+      ...
+    </div>
+  )
+}
+
+
+export default MyStatelessComponent
 ```
 
-ou 
-```
-<input type={value} />
-```
+Il ne se charge que de l'affichage et des interactions utilisateurs.
+Ici notre composant `Todo` va prendre en props notre donnée et  afficher le contenu de la todo. On va y ajouter un bouton qui permettra de retirer la todo ciblée de la liste. Pour cela, on utilisera une props callback et un Array.filter (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
-Vous pouvez aussi passer une fonction en props à travers les composants. C'est ce qu'il faut faire ici.
-
-Une fois que vous avez réussi à changer le state, vous pouvez importer le composant todoList qui est prêt à être modifié.
 
 ## Suite
 
-Dans le composant todoList, il va falloir remplacer l'affichage de la todo statique par les todos qui sont dans le state. Pour cela il va falloir utiliser une des Array functions : le .map 
-(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) combiné avec du JSX : https://reactjs.org/docs/lists-and-keys.html
+Finalement, ce qu'on souhaite, c'est aussi de pouvoir éditer une todo, il faut donc pouvoir gêrer un état interne au composant. Il va donc falloir transformer notre composant stateless en composant stateful, gêrer un état interne de modification de la todo et d'émettre les modifications pour que celles-ci soient repercutées dans la liste (Props de callback :) )
 
