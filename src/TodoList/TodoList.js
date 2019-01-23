@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import Todo from '../Todo/Todo'
 import AddTodo from '../AddTodo/AddTodo'
 import uuidv4 from 'uuid/v4'
+import { fetchTodoList } from '../helpers/apiHelper'
+import Loader from '../Loader/Loader'
 
 class TodoList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      todos: [
-        {
-          id: 1,
-          title: 'Ménage',
-          description: 'Ne pas oublier de faire le ménage...'
-        },
-        {
-          id: 2,
-          title: 'Feuille de temps',
-          description: 'La feuille de temps c\'est super important ! '
-        }
-      ]
+      todos: []
     }
   }
 
@@ -26,6 +17,8 @@ class TodoList extends Component {
     return (
       <div>
         <h1>Mes TODOs</h1>
+
+        {this.state.todos.length === 0 && <Loader />}
         
         <ul>
           {this.state.todos.map((todo, index) => (
@@ -68,6 +61,13 @@ class TodoList extends Component {
     this.setState(prevState => ({
       todos: [...prevState.todos, {...todo, id: uuidv4()}]
     }))
+  }
+
+  componentDidMount () {
+    fetchTodoList()
+    .then(response => {
+      this.setState({todos: response.todos})
+    })
   }
 }
 
