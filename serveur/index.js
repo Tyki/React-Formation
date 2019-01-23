@@ -8,22 +8,20 @@ app.get('/getTodos', function (req, res) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   res.header('Access-Control-Allow-Headers', 'Content-Type')
 
-  setTimeout(() => {
-    res.json({
-      todos: [
-        {
-          id: 1,
-          title: 'Ménage',
-          description: 'Ne pas oublier de faire le ménage...'
-        },
-        {
-          id: 2,
-          title: 'Feuille de temps',
-          description: 'La feuille de temps c\'est super important ! '
-        }
-      ]
-    })
-  }, 1500)
+  res.json({
+    todos: [
+      {
+        id: '1',
+        title: 'Ménage',
+        description: 'Ne pas oublier de faire le ménage...'
+      },
+      {
+        id: '2',
+        title: 'Feuille de temps',
+        description: 'La feuille de temps c\'est super important ! '
+      }
+    ]
+  })
 })
 
 app.listen(3001)

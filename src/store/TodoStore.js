@@ -4,6 +4,7 @@ import uuidv4 from 'uuid/v4'
 class TodoStore {
   // properties
   @observable todos = []
+  @observable isLogged = false
 
   // actions
   @action setTodos(todos) {
@@ -34,6 +35,10 @@ class TodoStore {
         return todo
       }
     })
+  }
+
+  @action setLogged(isLogged) {
+    this.isLogged = isLogged
   }
 }
 

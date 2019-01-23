@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from '../Authentication/Login/Login'
 import TodoList from '../TodoList/TodoList'
+import { inject, observer } from 'mobx-react';
+import { fetchTodoList } from '../../helpers/apiHelper'
 
+@inject('TodoStore')
+@observer
 class App extends Component {
   constructor(props) {
     super(props)
@@ -19,7 +23,12 @@ class App extends Component {
   }
 
   handleLogin = (isLogged) => {
-    this.setState({isLogged})
+    this.props.TodoStore.setLogged(isLogged)
+
+    fetchTodoList()
+    .then(response => {
+      this.props.TodoStore.setTodos(response.todos)
+    })
   }
 }
 
