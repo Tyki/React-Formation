@@ -8,16 +8,10 @@ import { fetchTodoList } from '../../helpers/apiHelper'
 @inject('TodoStore')
 @observer
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {  
-      isLogged: false,
-    }
-  }
   render() {
     return (
       <div className="App">
-        {!this.state.isLogged ? <Login onLogin={this.handleLogin}/> :  <TodoList /> }
+        {!this.props.TodoStore.isLogged ? <Login onLogin={this.handleLogin}/> :  <TodoList /> }
       </div>
     );
   }
