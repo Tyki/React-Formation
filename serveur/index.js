@@ -12,12 +12,12 @@ app.get('/getTodos', function (req, res) {
     res.json({
       todos: [
         {
-          id: 1,
+          id: '1',
           title: 'Ménage',
           description: 'Ne pas oublier de faire le ménage...'
         },
         {
-          id: 2,
+          id: '2',
           title: 'Feuille de temps',
           description: 'La feuille de temps c\'est super important ! '
         }
