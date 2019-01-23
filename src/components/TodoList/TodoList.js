@@ -33,8 +33,6 @@ class TodoList extends Component {
   componentDidMount () {
     fetchTodoList()
     .then(response => {
-      console.log(response.todos)
-      console.log(this.props.TodoStore)
       this.props.TodoStore.setTodos(response.todos)
     })
   }
