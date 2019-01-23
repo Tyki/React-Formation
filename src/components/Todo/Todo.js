@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { inject } from 'mobx-react';
+import { Link } from 'react-router-dom'
 
 @inject('TodoStore')
 class Todo extends Component {
@@ -35,7 +36,7 @@ class Todo extends Component {
           </>
         }
         
-        
+        <Link to={'/todo/' + this.props.id}>Voir la fiche </Link>
       </li>
     )
   }

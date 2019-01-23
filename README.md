@@ -5,6 +5,6 @@ Maintenant que nous avons un store fonctionnel, nous pouvons mettre en place des
 Dans cet exercice, il va falloir : 
 - installer react-router
 - Mettre en place le système de routing dans le fichier index.js
-- Creer un composant qui sera affiché sur la route /todo/:id qui affichera la bonne todo
+- Creer un composant qui sera affiché sur la route /todo/:id qui affichera la bonne todo (attention, le parameter est un string)
 - Mettre en place des liens pour revenir sur / qui affichera toutes les todos
-  
+- Mettre une gestion de page 404 quand l'url ne match aucune route

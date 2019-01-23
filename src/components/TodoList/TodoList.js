@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Todo from '../Todo/Todo'
 import AddTodo from '../AddTodo/AddTodo'
-import { fetchTodoList } from '../../helpers/apiHelper'
 import Loader from '../Loader/Loader'
 import { inject, observer } from 'mobx-react'
 
@@ -16,7 +15,7 @@ class TodoList extends Component {
         {this.props.TodoStore.todos.length === 0 && <Loader />}
         
         <ul>
-          {this.props.TodoStore.todos.map((todo, index) => (
+          {this.props.TodoStore.todos.map((todo) => (
             <Todo key={todo.id} 
               id={todo.id}
               title={todo.title}
@@ -28,13 +27,6 @@ class TodoList extends Component {
         <AddTodo />
       </div>
     )
-  }
-
-  componentDidMount () {
-    fetchTodoList()
-    .then(response => {
-      this.props.TodoStore.setTodos(response.todos)
-    })
   }
 }
 
