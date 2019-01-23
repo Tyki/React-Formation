@@ -44,7 +44,9 @@ Une fois que le provider est en place, il "suffit" d'injecter dans les composant
 
 Ce qui permettra de pouvoir accèder au store depuis les props du composant : `this.props.[NomDuStore].[Propriété]`
 
-- Il faut maintenant mettre à jour le store apres l'appel à l'API. Il est possible d'appeller les actions du store depuis la prop injectée dans le composant (au moment du `ComponentWillMount`)
+- Faites le refactor pour déplacer le `isLogged` dans le store
+
+- Il faut maintenant mettre à jour le store apres l'appel à l'API __lorsque l'utilisateur vient de se connecter__. Nous n'utiliserons plus la methode du cycle de vie.
 
 - Maintenant que notre store est correctement chargé depuis l'API, il faut modifier la fonction de render du composant `TodoList` pour utiliser les données qui viennent du store. Pour que le composant observe les modifications qui sont effectués suite aux différents appels des actions, il faut utiliser l'annotation `@observer` (https://github.com/mobxjs/mobx-react#provider-and-inject)
 
@@ -53,5 +55,4 @@ Maintenant, des que votre store executera une action sur une propriété observa
 Vous devriez avoir le même résultat qu'a la fin de l'exercice 4, cependant les todos sont dans le store.
 
 - Faites le refactor nécessaire pour déporter les actions d'ajout et de suppression d'une todo dans le store
-
 
