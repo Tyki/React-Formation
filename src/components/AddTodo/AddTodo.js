@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { inject } from 'mobx-react';
 
+@inject('TodoStore')
 class AddTodo extends Component {
   constructor(props) {
     super(props)
@@ -19,7 +21,7 @@ class AddTodo extends Component {
         <textarea onChange={this.handleChange('description')} >{this.state.title}</textarea>
         <label htmlFor="addTodo">Titre</label>
 
-        <button type="button" onClick={() => this.props.onAdd(this.state)}>Ajouter une todo</button>
+        <button type="button" onClick={this.addTodo}>Ajouter une todo</button>
       </div>
     )
   }
@@ -30,6 +32,11 @@ class AddTodo extends Component {
       [name]: event.target.value,
     });
   };
+
+  addTodo = () => {
+    this.props.TodoStore.addTodo(this.state.title, this.state.description)
+    this.setState({title: '', description: ''})
+  }
 }
 
 export default AddTodo

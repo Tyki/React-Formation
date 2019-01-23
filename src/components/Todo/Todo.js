@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { inject } from 'mobx-react';
 
+@inject('TodoStore')
 class Todo extends Component {
   constructor(props) {
     super(props)
@@ -18,7 +20,7 @@ class Todo extends Component {
             <h4>{this.props.title}</h4>
             <span>{this.props.description}</span>
 
-            <button type="button" onClick={() => this.props.onDelete(this.props.id)}>Supprimer</button>
+            <button type="button" onClick={this.deleteTodo}>Supprimer</button>
             <button type="button" onClick={() => this.setState({editing: true})}>Editer</button>
           </>  
         }
@@ -38,6 +40,10 @@ class Todo extends Component {
     )
   }
 
+  deleteTodo = () => {
+    this.props.TodoStore.deleteTodo(this.props.id)
+  }
+
   handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value,
@@ -45,7 +51,7 @@ class Todo extends Component {
   };
 
   validateEdit = () => {
-    this.props.onEdit(this.props.id, this.state.title, this.state.description)
+    this.props.TodoStore.editTodo(this.props.id, this.state.title, this.state.description)
     this.setState({editing: false})
   }
 }
