@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Todo from '../Todo/Todo'
 import AddTodo from '../AddTodo/AddTodo'
 import uuidv4 from 'uuid/v4'
-import { fetchTodoList } from '../helpers/apiHelper'
+import { fetchTodoList } from '../../helpers/apiHelper'
 import Loader from '../Loader/Loader'
 
 class TodoList extends Component {
