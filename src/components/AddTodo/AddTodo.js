@@ -16,7 +16,7 @@ class AddTodo extends Component {
         <input id="addTodo" type="text" value={this.state.title} onChange={this.handleChange('title')} />
         <label htmlFor="addTodo">Titre</label>
 
-        <textarea onChange={this.handleChange('description')} >{this.state.title}</textarea>
+        <textarea onChange={this.handleChange('description')} value={this.state.description}></textarea>
         <label htmlFor="addTodo">Titre</label>
 
         <button type="button" onClick={() => this.props.onAdd(this.state)}>Ajouter une todo</button>
